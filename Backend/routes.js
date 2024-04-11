@@ -9,7 +9,7 @@ router.post('/login', async (req, res) => {
     console.log(req.body)
     try {
         // Check if user exists
-        const user = await User.findOne({Username }).exec();
+        const user = await User.findOne({Username}).exec();
         console.log(user)
         if (!user) {
             return res.status(401).json({ message: 'Invalid username or password' });
@@ -21,7 +21,7 @@ router.post('/login', async (req, res) => {
         }
 
         // Authentication successful
-        res.json({ message: 'Login successful', user });
+        res.json({ message: 'Login successful', user});
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
