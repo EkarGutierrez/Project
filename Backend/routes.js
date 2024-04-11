@@ -28,4 +28,11 @@ router.post('/login', async (req, res) => {
     }
 });
 
+//Handling user logout 
+router.get("/logout", function (req, res) {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/login');
+      });
+});
 module.exports = router;
